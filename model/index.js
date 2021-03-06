@@ -1,7 +1,18 @@
-// const fs = require('fs/promises')
-// const contacts = require('./contacts.json')
+const fs = require('fs/promises')
+const path = require('path')
+const contactsPath = path.resolve('model/contacts.json')
+const encoding = 'utf8'
 
-const listContacts = async () => {}
+const readContacts = async () => {
+  const result = await fs.readFile(contactsPath, encoding)
+  const contacts = JSON.parse(result)
+  return contacts
+}
+
+const listContacts = async () => {
+  const contacts = await readContacts()
+  return contacts
+}
 
 const getContactById = async (contactId) => {}
 
