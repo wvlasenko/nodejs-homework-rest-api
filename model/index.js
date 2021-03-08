@@ -14,9 +14,15 @@ const listContacts = async () => {
   return contacts
 }
 
-const getContactById = async (contactId) => {}
+const getContactById = async (contactId) => {
+  const contacts = await readContacts()
+  const [selectedContact] = contacts.filter(
+    contact => contact.id === Number(contactId),
+  )
+  return selectedContact
+}
 
-const removeContact = async (contactId) => {}
+function removeContact(contactId) { }
 
 const addContact = async (body) => {}
 
